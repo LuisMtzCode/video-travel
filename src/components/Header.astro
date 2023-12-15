@@ -1,0 +1,146 @@
+---
+interface Props {
+  transparent?: boolean;
+}
+
+const { transparent } = Astro.props;
+---
+
+<header
+  class:list={[
+    "text-white w-full",
+    transparent ? "bg-transparent absolute top-0 z-10" : "bg-gray-900",
+  ]}
+>
+  <nav
+    class="mx-auto flex max-w-7xl items-center justify-between py-1 lg:px-8"
+    aria-label="Global"
+  >
+    <div class="flex lg:flex-1">
+      <a href="/" class="flex justify-center items-center p-1.5">
+        <img
+          class="h-16 w-auto"
+          src="/img/logo.png"
+          alt="Video Adventures Logo"
+        />
+        <h3 class="text-logo">Video <br />Adventures</h3>
+      </a>
+    </div>
+    <div class="flex lg:hidden">
+      <button
+        type="button"
+        class="inline-flex items-center justify-center rounded-md p-2.5 text-white menu-button-open"
+      >
+        <span class="sr-only">Open main menu</span>
+        <!-- Heroicon name: outline/menu -->
+        <i class="ti ti-menu-2 text-2xl p-4"></i>
+      </button>
+    </div>
+    <div class="hidden lg:flex lg:gap-x-12"></div>
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end gap-6">
+      <a
+        href="/"
+        class="text-md font-semibold leading-6 text-sky-100 font-montserrat link-header"
+        >Inicio</a
+      >
+      <a
+        href="/videos"
+        class="text-md font-semibold leading-6 text-sky-100 font-montserrat link-header"
+        >Videos</a
+      >
+      <a
+        href="/contacto"
+        class="text-md font-semibold leading-6 text-sky-100 font-montserrat link-header"
+        >Contacto</a
+      >
+      <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
+        >Log in <span aria-hidden="true">&rarr;</span></a
+      > -->
+    </div>
+  </nav>
+
+  <!-- Mobile menu, show/hide based on menu open state. -->
+  <div
+    class="menu-collapsible lg:hidden hidden"
+    role="dialog"
+    aria-modal="true"
+  >
+    <!-- Background backdrop, show/hide based on slide-over state. -->
+    <div class="fixed inset-0 z-10"></div>
+    <div
+      class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-900 sm:max-w-sm sm:ring-1 py-2 sm:ring-gray-900/10"
+    >
+      <div class="flex items-center justify-between">
+        <a href="#" class="flex justify-center items-center p-1.5">
+          <!-- <span class="sr-only">Video Adventures</span> -->
+          <img
+            class="h-16 w-auto"
+            src="/img/logo.png"
+            alt="Video Adventures Logo"
+          />
+          <h3 class="text-logo">Video <br />Adventures</h3>
+        </a>
+
+        <button
+          type="button"
+          class="menu-button-close px-6 py-4 text-white text-2xl"
+        >
+          <span class="sr-only">Close menu</span>
+          <i class="ti ti-x"></i>
+        </button>
+      </div>
+      <div class="mt-6 flow-root">
+        <div class="-my-6 divide-y divide-gray-500/10">
+          <div class="space-y-2 py-6 px-4">
+            <a
+              href="/"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white"
+              >Inicio</a
+            >
+            <a
+              href="/videos"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text"
+              >Videos</a
+            >
+            <a
+              href="/contacto"
+              class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text"
+              >Contacto</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Find all buttons with the `alert` class on the page.
+  const buttonOpenModal = document.querySelector("button.menu-button-open");
+  const buttonCloseModal = document.querySelector("button.menu-button-close");
+  const menu = document.querySelector(".menu-collapsible");
+
+  buttonOpenModal?.addEventListener("click", function () {
+    menu?.classList.remove("hidden");
+  });
+
+  buttonCloseModal?.addEventListener("click", function () {
+    menu?.classList.add("hidden");
+  });
+</script>
+
+<style>
+  .text-logo {
+    @apply text-white text-base font-semibold leading-none ml-2 font-montserrat opacity-80;
+  }
+
+  .link-header:after {
+    @apply block border-b-2 border-white transition-all duration-300 ease-in-out;
+    content: "";
+    transform: scaleX(0);
+  }
+
+  .link-header:hover:after {
+    transform: scaleX(1.2);
+  }
+</style>

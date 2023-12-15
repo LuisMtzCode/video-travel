@@ -1,0 +1,107 @@
+[
+    {
+        "id": "452e4dfcd9a39e942324ec0430c973b7",
+        "title": "Descubre Colombia",
+        "description": "Descubre Colombia, su cultura, su gente, su historia en este video.",
+        "user": "José Luis",
+        "avatar": "bear.png",
+        "date": "2019-10-10",
+        "thumbnail": "colombia-el-penol.png",
+        "source": "Colombia.mp4",
+        "captions": "",
+        "idPlace": 1,
+        "time": "02:45"
+    },
+    {
+        "id": "6f273817209bb459395be5aeda753f17",
+        "title": "Cosas que hacer en Buenos Aires",
+        "description": "Cosas que hacer en Buenos Aires, su cultura, su gente, su historia en este video.",
+        "user": "Alan Por El Mundo",
+        "avatar": "bear.png",
+        "date": "2022-03-10",
+        "thumbnail": "buenos-aires.jpeg",
+        "source": "BuenosAiresArgentina.mp4",
+        "captions": "buenos-aires.vtt",
+        "idPlace": 2,
+        "time": "11:50"
+    },
+    {
+        "id": "c18d58c98647c0a99dc339a421879f30",
+        "title": "Lima, un destino para todos",
+        "description": "Lima, un destino para todos, su cultura, su gente, su historia en este video.",
+        "user": "Peru Experience",
+        "avatar": "bear.png",
+        "date": "2020-10-10",
+        "thumbnail": "lima-peru.jpg",
+        "source": "LimaPeru.mp4",
+        "captions": "lima-peru.vtt",
+        "idPlace": 3,
+        "time": "07:02"
+    },
+    { 
+        "id": "cadb4d8045eccd17000abcdede3e0290",
+        "title": "Cusco, la ciudad imperial",
+        "description": "Cusco, la ciudad imperial, su cultura, su gente, su historia en este video.",
+        "user": "Peru Experience",
+        "avatar": "bear.png",
+        "date": "2021-03-10",
+        "thumbnail": "cusco-peru.jpg",
+        "source": "CuscoPeru.mp4",
+        "captions": "cusco-peru.vtt",
+        "idPlace": 4,
+        "time": "22:27"
+    },
+    {
+        "id": "d1e40b841659cfc14c882b56c4dcbfa5",
+        "title":"TOP 10 Que Ver en Ciudad de México",
+        "description": "En este video, te mostramos los 10 lugares que no te puedes perder en Ciudad de México. Ve el video y descubre los lugares más emblemáticos de la ciudad.",
+        "user": "Viajefest",
+        "avatar": "dog.png",
+        "date": "2022-01-11",
+        "thumbnail": "ciudad-de-mexico.jpg",
+        "source": "CiudadDeMexico.mp4",
+        "captions": "ciudad-de-mexico.vtt",
+        "idPlace": 5,
+        "time": "14:02"
+    },
+    {
+        "id": "61ca8bc154a551329bc696f142c918be",
+        "title": "Explorando la capital de Venezuela",
+        "description": "Bienvenidos a la ciudad de Caracas en Venezuela! Esta vez voy a ser de turista en mi propia ciudad y los llevo a conocer muchos lugares interesantes que esta ciudad tiene para ofrecer desde miradores, museos, parques, universidades y mucho más!",
+        "user": "Traveler Helena",
+        "avatar": "penguin.png",
+        "date": "2023-03-10",
+        "thumbnail": "caracas.jpg",
+        "source": "Caracas.mp4",
+        "captions": "caracas.vtt",
+        "idPlace": 6,
+        "time": "14:57"
+    },
+    {
+        "id": "0704d2e570988c41e3e7473dc788ba85",
+        "title": "Conociendo las hermosuras de PANAMÁ",
+        "description": "Acompañame a conocer las hermosuras de Panamá, un país que tiene mucho que ofrecer. En este video te muestro algunos de los lugares que visité en mi viaje a Panamá.",
+        "user": "Luisito Comunica",
+        "avatar": "tiger.png",
+        "date": "2022-07-10",
+        "thumbnail": "panama.jpeg",
+        "source": "Panama.mp4",
+        "captions": "panama.vtt",
+        "idPlace": 7,
+        "time": "15:58"
+    },
+    {
+        "id": "a1c4b783cd4e4c7a60f5a5425f79b49c",
+        "title": "3 días en Santiago de Chile",
+        "description": "En este video te mostramos los lugares que visitamos en Santiago de Chile. Te mostramos los lugares más emblemáticos de la ciudad.",
+        "user": "Intriper",
+        "avatar": "deer.png",
+        "date": "2022-03-10",
+        "thumbnail": "santiago-chile.jpeg",
+        "source": "SantiagoChile.mp4",
+        "captions": "santiago-chile.vtt",
+        "idPlace": 8,
+        "time": "10:02"
+    }
+
+]

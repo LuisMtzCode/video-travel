@@ -1,0 +1,399 @@
+---
+const { source, className, nameImage, captions } = Astro.props;
+---
+
+<div id="video-container">
+  <video class:list={["video", className]} preload="auto">
+    <source src={source} type="video/mp4" />
+    {
+      captions && (
+        <track
+          kind="subtitles"
+          src={captions}
+          srclang="es"
+          label="Spanish"
+          default
+        />
+      )
+    }
+
+    <p class="vjs-no-js">
+      Para ver este video, habilita JavaScript y considera actualizar tu
+      navegador web que
+      <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >Soporte a HTML5 video</a
+      >
+    </p>
+  </video>
+  <!-- Video Controls -->
+  <div class="video-controls">
+    <div class="flex">
+      <input
+        class="w-full"
+        type="range"
+        id="seek-bar"
+        value="0"
+        min="0"
+        max="100"
+      />
+    </div>
+    <div class="flex justify-between">
+      <div class="flex gap-2 items-center">
+        <div>
+          <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+        </div>
+        <button type="button" id="play-pause">
+          <i class="ti ti-player-play-filled"></i>
+        </button>
+        <button type="button" id="mute"><i class="ti ti-volume"></i></button>
+        <input
+          class="w-24"
+          type="range"
+          id="volume-bar"
+          min="0"
+          max="1"
+          step="0.1"
+          value="1"
+        />
+      </div>
+
+      <div class="flex gap-2 items-center">
+        {
+          captions && (
+            <button
+              class="hidden md:block btn-captions"
+              type="button"
+              id="captions"
+            >
+              <i class="ti ti-badge-cc text-gray-500" />
+            </button>
+          )
+        }
+
+        <button class="hidden md:block btn-velocity" type="button" id="velocity"
+          ><i class="ti ti-multiplier-1x"></i></button
+        >
+        <button
+          class="hidden md:block btn-photo"
+          type="button"
+          id="take-img"
+          data-name-img={nameImage}><i class="ti ti-photo-scan"></i></button
+        >
+
+        <div class="relative inline-block md:hidden text-left">
+          <button id="dropdown-button" class="text-white">
+            <i class="ti ti-dots-vertical"></i>
+          </button>
+          <div
+            id="dropdown-menu"
+            class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+          >
+            <div
+              class="py-2 p-2"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="dropdown-button"
+            >
+              <a
+                class="btn-velocity flex font-regular gap-2 items-center rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer"
+                role="menuitem"
+              >
+                <i class="ti ti-multiplier-1x"></i> Velocidad
+              </a>
+              <a
+                class="btn-photo flex font-regular gap-2 items-center rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer"
+                role="menuitem"
+              >
+                <i class="ti ti-photo-scan"></i> Tomar imagen
+              </a>
+              {
+                captions && (
+                  <a
+                    class="btn-captions flex font-regular gap-2 items-center rounded-md px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 active:bg-blue-100 cursor-pointer"
+                    role="menuitem"
+                  >
+                    <i class="ti ti-badge-cc text-gray-500" />
+                    Subtitulos
+                  </a>
+                )
+              }
+            </div>
+          </div>
+        </div>
+
+        <button type="button" id="full-screen"
+          ><i class="ti ti-maximize"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const video = document.querySelector("video") as HTMLVideoElement;
+  const currentTime = document.querySelector(
+    "#current-time"
+  ) as HTMLSpanElement;
+  const duration = document.querySelector("#duration") as HTMLSpanElement;
+
+  // Buttons
+  const playButton = document.querySelector("#play-pause") as HTMLButtonElement;
+  const muteButton = document.querySelector("#mute") as HTMLButtonElement;
+  const fullScreenButton = document.querySelector(
+    "#full-screen"
+  ) as HTMLButtonElement;
+  const takeImgArray = document.querySelectorAll(".btn-photo");
+  const captionsArray = document.querySelectorAll(".btn-captions");
+  const velocityArray = document.querySelectorAll(".btn-velocity");
+
+  // Sliders
+  const seekBar = document.querySelector("#seek-bar") as HTMLInputElement;
+  const volumeBar = document.querySelector("#volume-bar") as HTMLInputElement;
+
+  // Variables
+  let saveVolume = 1;
+
+  // Event listener for the play/pause button
+  if (video) {
+    video.addEventListener("loadeddata", function () {
+      // Set video duration in minutes and seconds
+      const minutes = Math.floor(video.duration / 60);
+      const seconds = Math.floor(video.duration - minutes * 60);
+      duration.innerHTML =
+        (minutes < 10 ? "0" : "") +
+        minutes +
+        ":" +
+        (seconds < 10 ? "0" : "") +
+        seconds;
+    });
+
+    playButton?.addEventListener("click", function () {
+      const playButtonIcon = playButton.querySelector("i");
+      playButtonIcon?.classList.remove("ti-player-play-filled");
+      playButtonIcon?.classList.remove("ti-player-pause-filled");
+
+      if (video.paused == true) {
+        // Play the video
+        video.play();
+        playButtonIcon?.classList.add("ti-player-pause-filled");
+      } else {
+        // Pause the video
+        video.pause();
+        playButtonIcon?.classList.add("ti-player-play-filled");
+      }
+    });
+
+    muteButton?.addEventListener("click", function () {
+      const muteButtonIcon = muteButton.querySelector("i");
+      muteButtonIcon?.classList.remove("ti-volume");
+      muteButtonIcon?.classList.remove("ti-volume-off");
+
+      if (video.muted === false) {
+        // Mute the video
+        saveVolume = video.volume;
+        video.muted = true;
+        muteButtonIcon?.classList.add("ti-volume-off");
+        video.volume = 0;
+      } else {
+        // Unmute the video
+        video.volume = saveVolume;
+        video.muted = false;
+        muteButtonIcon?.classList.add("ti-volume");
+      }
+
+      volumeBar.value = video.volume + "";
+    });
+
+    fullScreenButton?.addEventListener("click", function () {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      }
+    });
+
+    seekBar?.addEventListener("change", function () {
+      // Calculate the new time
+      if (!video) return;
+      let time = Number(video.duration) * (Number(seekBar?.value) / 100);
+
+      // Update the video time
+      video.currentTime = time;
+    });
+
+    // Event listener for the seek bar when is dragging
+    seekBar?.addEventListener("input", function () {
+      // Calculate the new time
+      if (!video) return;
+      let time = Number(video.duration) * (Number(seekBar?.value) / 100);
+
+      // Update the video time
+      video.currentTime = time;
+    });
+
+    // Play and pause when click on the video
+    video.addEventListener("click", function () {
+      const playButtonIcon = playButton.querySelector("i");
+      playButtonIcon?.classList.remove("ti-player-play-filled");
+      playButtonIcon?.classList.remove("ti-player-pause-filled");
+
+      if (video.paused == true) {
+        // Play the video
+        video.play();
+        playButtonIcon?.classList.add("ti-player-pause-filled");
+      } else {
+        // Pause the video
+        video.pause();
+        playButtonIcon?.classList.add("ti-player-play-filled");
+      }
+    });
+
+    // Update the seek bar as the video plays
+    video.addEventListener("timeupdate", function () {
+      if (!seekBar) return;
+      const minutes = Math.floor(video.currentTime / 60);
+      const seconds = Math.floor(video.currentTime - minutes * 60);
+      currentTime.innerHTML =
+        (minutes < 10 ? "0" : "") +
+        minutes +
+        ":" +
+        (seconds < 10 ? "0" : "") +
+        seconds;
+
+      // Calculate the slider value
+      var value = (100 / video.duration) * video.currentTime;
+
+      // Update the slider value
+      seekBar.value = value + "";
+    });
+
+    // Pause the video when the slider handle is being dragged
+    seekBar.addEventListener("mousedown", function () {
+      video.pause();
+    });
+
+    // Play the video when the slider handle is dropped
+    seekBar.addEventListener("mouseup", function () {
+      video.play();
+    });
+
+    // Event listener for the volume bar
+    volumeBar?.addEventListener("change", function () {
+      // Update the video volume
+      // TODO fix this
+      video.volume = Number(volumeBar?.value);
+    });
+
+    velocityArray.forEach((velocity) => {
+      velocity?.addEventListener("click", function () {
+        const velocityIcon = velocity.querySelector("i");
+
+        velocityIcon?.classList.remove("ti-multiplier-1x");
+        velocityIcon?.classList.remove("ti-multiplier-1-5x");
+        velocityIcon?.classList.remove("ti-multiplier-2x");
+        if (video.playbackRate == 1) {
+          video.playbackRate = 1.5;
+          velocityIcon?.classList.add("ti-multiplier-1-5x");
+        } else if (video.playbackRate == 1.5) {
+          video.playbackRate = 2;
+          velocityIcon?.classList.add("ti-multiplier-2x");
+        } else if (video.playbackRate == 2) {
+          video.playbackRate = 1;
+          velocityIcon?.classList.add("ti-multiplier-1x");
+        }
+      });
+    });
+
+    takeImgArray.forEach((takeImg) => {
+      takeImg?.addEventListener("click", function () {
+        const video = document.querySelector("video");
+        if (!video) return;
+
+        const canvas = document.createElement("canvas");
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas?.getContext("2d")?.drawImage(video, 0, 0);
+        const img = document.createElement("img");
+        img.src = canvas.toDataURL("image/png");
+
+        // download image
+        const link = document.createElement("a");
+        const nameImg = takeImg.getAttribute("image") || "image";
+        link.download = nameImg + ".png";
+        link.href = img.src;
+        link.click();
+      });
+    });
+  }
+
+  captionsArray.forEach((captions) => {
+    captions?.addEventListener("click", function () {
+      const captionsIcon = captions.querySelector("i");
+      if (video.textTracks[0].mode == "showing") {
+        video.textTracks[0].mode = "hidden";
+        captionsIcon?.classList.add("text-gray-500");
+      } else {
+        video.textTracks[0].mode = "showing";
+        captionsIcon?.classList.remove("text-gray-500");
+      }
+    });
+  });
+
+  const dropdownButton = document.getElementById("dropdown-button");
+  const dropdownMenu = document.getElementById("dropdown-menu");
+  let isDropdownOpen = false; // Set to true to open the dropdown by default, false to close it by default
+
+  // Function to toggle the dropdown
+  function toggleDropdown() {
+    isDropdownOpen = !isDropdownOpen;
+    if (isDropdownOpen) {
+      dropdownMenu?.classList.remove("hidden");
+    } else {
+      dropdownMenu?.classList.add("hidden");
+    }
+  }
+
+  // Initialize the dropdown state
+  // toggleDropdown();
+
+  // Toggle the dropdown when the button is clicked
+  dropdownButton?.addEventListener("click", toggleDropdown);
+
+  // Close the dropdown when clicking outside of it
+  // window.addEventListener("click", (event) => {
+  //   if (
+  //     dropdownButton &&
+  //     dropdownButton.contains(event.target as Node) &&
+  //     !dropdownMenu?.contains(event.target as Node)
+  //   ) {
+  //     dropdownMenu?.classList.add("hidden");
+  //     isDropdownOpen = false;
+  //   }
+  // });
+</script>
+
+<style>
+  .video {
+    @apply w-full max-w-screen-xl mx-auto cursor-pointer;
+    min-height: 480px;
+  }
+
+  .video-controls {
+    @apply flex flex-col justify-center w-full text-white px-4 py-2 gap-2 font-montserrat font-medium;
+  }
+
+  .video-controls input[type="range"] {
+    @apply h-1 cursor-pointer my-2 border-none outline-none;
+    accent-color: #0ea5e9;
+  }
+
+  .video-controls input[type="range"]::-webkit-slider-runnable-track {
+    @apply outline-none border-none;
+  }
+
+  .video-controls button {
+    @apply text-2xl;
+  }
+
+  #dropdown-menu {
+    top: -9rem;
+  }
+</style>

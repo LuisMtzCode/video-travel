@@ -1,0 +1,88 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Card from "../components/Card.astro";
+
+import videos from "../../public/json/videos.json";
+import places from "../../public/json/places.json";
+---
+
+<Layout title="Inicio" transparentHeader>
+  <Hero slot="before-container" />
+
+  <section>
+    <h3 class="text-3xl">Explora</h3>
+    <p class="text-gray-500 text-base">
+      Descubre los mejores lugares de la ciudades que te gustan.
+    </p>
+    <div class="carousel">
+      {
+        videos.slice(0, 4).map((video) => {
+          const place = places.find((place) => place.id === video.idPlace);
+          if (!place) return null;
+
+          return (
+            <Card
+              title={place.name}
+              className="mx-2"
+              href={`/video/${video.id}`}
+              thumbnail={`/img/thumbnails/${place.thumbnail}`}
+            />
+          );
+        })
+      }
+    </div>
+  </section>
+
+  <section class="">
+    <h3 class="font-montserrat font-extrabold text-3xl pt-8">
+      Explora los lugares más populares
+    </h3>
+    <p class="text-gray-500 text-base">
+      Descubre los lugares que demás usuarios han visto recientemente.
+    </p>
+    <div
+      class="max-w-screen-lg mx-auto columns-1 sm:columns-2 md:columns-3 gap-3 space-y-3 p-3"
+    >
+      {
+        places
+          .reverse()
+          .slice(0, 6)
+          .map((place, index) => (
+            <div class="relative">
+              <img
+                class:list={[
+                  "w-full rounded-md object-cover aspect-square",
+                  {
+                    "sm:aspect-video": [true, false, false, true, true, false][
+                      index
+                    ],
+                  },
+                ]}
+                alt={place.name}
+                src={`/img/thumbnails/${place.thumbnail}`}
+              />
+              <div class="rounded-md hover:backdrop-blur-sm hover:bg-black/20 absolute top-0 left-0 w-full h-full transition-all duration-300">
+                <div class="flex flex-col justify-end h-full font-montserrat text-white p-4 self-end hover:opacity-100 opacity-0 transition-opacity duration-300">
+                  <h4 class="font-bold text-lg text-white">{place.name}</h4>
+                  <p class="text-xs">{place.shortDescription}</p>
+                </div>
+              </div>
+            </div>
+          ))
+      }
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .carousel {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    flex-wrap: nowrap;
+    margin: 0 -1rem;
+    padding: 1rem 0;
+  }
+</style>

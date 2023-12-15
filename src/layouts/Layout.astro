@@ -1,0 +1,70 @@
+---
+import Header from "../components/Header.astro";
+import Container from "../components/Container.astro";
+import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+  title: string;
+  transparentHeader?: boolean;
+}
+
+const { title, transparentHeader = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Explora el mundo a través de videos de viajes emocionantes. Descubre destinos increíbles, consejos de viaje y experiencias únicas en nuestra plataforma de video de viajes en español."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - Travel Adventure</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <Header transparent={transparentHeader} />
+    <Container>
+      <div slot="before-container">
+        <slot name="before-container" />
+      </div>
+      <slot />
+    </Container>
+    <Footer />
+  </body><script></script>
+
+  <style is:global>
+    @font-face {
+      font-family: "Montserrat";
+      src: url("/fonts/Montserrat-Regular.ttf") format("ttf");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply font-bold font-montserrat m-0 text-gray-900;
+    }
+  </style>
+</html>

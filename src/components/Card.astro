@@ -1,0 +1,95 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  thumbnail: string;
+  className?: string;
+  classNameContainer?: string;
+  titleVideo?: string;
+  userName?: string;
+  timeVideo?: string;
+}
+
+const {
+  href,
+  title,
+  thumbnail,
+  className,
+  classNameContainer,
+  titleVideo,
+  userName,
+  timeVideo,
+} = Astro.props;
+
+const cropText = (text: string, length: number) => {
+  if (text.length > length) {
+    return text.slice(0, length) + "...";
+  }
+  return text;
+};
+---
+
+<article class:list={[classNameContainer]}>
+  <div
+    class:list={[
+      "relative w-72 h-44 max-w-sm rounded-lg shadow-lg card-video",
+      className,
+    ]}
+  >
+    <a href={href}>
+      <img
+        class="absolute inset-0 w-full h-full object-cover rounded-lg"
+        src={thumbnail}
+        alt={title}
+      />
+      <div class="absolute inset-0 rounded-lg h-auto background"></div>
+      <div class="absolute inset-0 flex justify-center items-center title">
+        <h5 class="font-light text-3xl text-white text-center">
+          {title}
+        </h5>
+      </div>
+      <div
+        class="time-video hidden absolute right-2 bottom-2 bg-black/40 rounded-md w-fit h-fit text-white px-1 text-xs transition-all duration-300 ease-in-out"
+      >
+        {timeVideo}
+      </div>
+    </a>
+  </div>
+  {
+    titleVideo && (
+      <a
+        class="flex flex-col leading-none px-0 pt-2 font-montserrat"
+        href={href}
+      >
+        <h3 class="text-sky-950">{cropText(titleVideo, 30)}</h3>
+        <p class="text-sm text-gray-400 font-normal">{userName}</p>
+      </a>
+    )
+  }
+</article>
+
+<style>
+  .card-video {
+    min-width: 18rem;
+    background-color: #000;
+  }
+
+  .card-video .background {
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .card-video:hover .background {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .card-video .title {
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: normal;
+    font-weight: 300;
+  }
+
+  .card-video:hover .time-video {
+    display: block;
+  }
+</style>

@@ -1,0 +1,119 @@
+---
+import videos from "../../../public/json/videos.json";
+import places from "../../../public/json/places.json";
+import Layout from "../../layouts/Layout.astro";
+import VideoPlayer from "../../components/VideoPlayer.astro";
+import Card from "../../components/Card.astro";
+
+export async function getStaticPaths() {
+  return videos.map((video) => ({ params: { id: video.id } }));
+}
+
+const { id } = Astro.params;
+const video = videos.find((video) => video.id === id);
+const place = places.find((place) => place.id === video?.idPlace);
+
+const randomVideos = videos
+  .filter((video) => video.id !== id)
+  .sort(() => Math.random() - Math.random())
+  .slice(0, 5);
+---
+
+<Layout title={video?.title ?? "Vive las aventuras"}>
+  <section class="video-container">
+    <VideoPlayer
+      source={`/videos/${video?.source}`}
+      captions={video?.captions ? `/videos/captions/${video?.captions}` : null}
+      className="video"
+      nameImage={`${video?.title.toLowerCase()}-img`}
+    />
+  </section>
+  <section class="flex flex-col lg:flex-row">
+    <div class="flex flex-col gap-4 w-full lg:w-2/3">
+      <div class="rounded-lg">
+        <h1 class="text-2xl font-bold font-montserrat mb-2 text-sky-900">
+          {video?.title}
+        </h1>
+        <div class="user">
+          <img
+            class="w-10"
+            src={`/img/avatars/${video?.avatar}`}
+            alt={`Avatar ${video?.user}`}
+          />
+          <div class="user-info">
+            <h2 class="text-lg mb-0 leading-none">{video?.user}</h2>
+            <p class="text-xs text-gray-500">{video?.date}</p>
+          </div>
+        </div>
+        <p class="text-base mt-2">{video?.description}</p>
+      </div>
+
+      <hr class="" />
+
+      <div class="rounded-lg">
+        <div class="mb-4">
+          <h2 class="text-2xl font-bold font-montserrat text-sky-900 mb-4">
+            Más datos acerca de tu próximo destino
+          </h2>
+          {
+            place?.description && (
+              <p
+                class="font-montserrat text-lg"
+                set:html={place?.description}
+              />
+            )
+          }
+        </div>
+
+        {
+          place?.iframeSrc && (
+            <iframe
+              class="w-full h-96"
+              src={place?.iframeSrc}
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            />
+          )
+        }
+      </div>
+    </div>
+
+    <div class="w-full mt-4 lg:w-1/3 lg:mt-0">
+      <div class="flex lg:flex-col gap-4 flex-wrap items-center justify-center">
+        {
+          randomVideos.map((video) => {
+            const place = places.find((place) => place.id === video.idPlace);
+            if (!place) return null;
+
+            return (
+              <Card
+                title={place.name}
+                className=""
+                href={`/video/${video.id}`}
+                thumbnail={`/img/thumbnails/${place.thumbnail}`}
+                titleVideo={video.title}
+                timeVideo={video.time}
+                userName={video.user}
+              />
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .video-container {
+    @apply bg-black;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-top: -2rem;
+  }
+
+  .user {
+    @apply flex items-center gap-4 font-montserrat;
+  }
+</style>

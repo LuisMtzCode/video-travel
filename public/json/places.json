@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "name": "Colombia",
+        "country": "Colombia",
+        "continent": "América",
+        "description": "<h1>Colombia: Diversidad Natural y Cultural</h1><p>Colombia, situada en el extremo noroeste de América del Sur, es un país diverso y fascinante que ofrece una mezcla única de paisajes naturales, patrimonio cultural y una calidez humana que cautiva a quienes la visitan.</p><p>Su riqueza natural se evidencia en sus extensas playas en la costa caribeña, sus montañas andinas, la exuberante selva amazónica y su biodiversidad única que alberga una amplia variedad de flora y fauna.</p><p>La historia y la cultura de Colombia se reflejan en sus ciudades coloniales como Cartagena, con su impresionante arquitectura y fortificaciones históricas, y en Bogotá, la capital, que combina lo moderno con lo histórico en su animado centro.</p><p>Además, Colombia es reconocida por su rica escena cultural, que incluye festivales de música, danza y arte, así como por su gastronomía variada que fusiona influencias indígenas, africanas y españolas.</p>",
+        "shortDescription": "Colombia, en América del Sur, es un país diverso con playas caribeñas, montañas andinas y una rica herencia cultural. Sus ciudades coloniales y escena cultural hacen de Colombia un destino único.",    
+        "thumbnail": "colombia-el-penol.png",
+        "iframeSrc": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254508.39475498645!2d-74.272960766873!3d4.648620549120773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2sBogot%C3%A1%2C%20Colombia!5e0!3m2!1ses!2smx!4v1701926289124!5m2!1ses!2smx"
+    },
+    {
+        "id": 2,
+        "name": "Buenos Aires",
+        "country": "Argentina",
+        "continent": "América",
+        "description": "<h1>Buenos Aires: Ciudad de la Pasión y la Cultura</h1><p>Buenos Aires, la capital de Argentina, es una metrópolis vibrante que cautiva a sus visitantes con su mezcla única de historia, arte y pasión. Ubicada a orillas del Río de la Plata, esta ciudad bulliciosa es reconocida por su elegancia europea y su espíritu latinoamericano.</p><p>El corazón de Buenos Aires late en sus barrios distintivos, cada uno con su propio encanto y personalidad. Desde el icónico barrio de La Boca, con sus casas de colores vivos y el famoso estadio La Bombonera, hasta el histórico barrio de San Telmo, hogar de ferias de antigüedades y tango en las calles empedradas.</p><p>La ciudad también ofrece una rica escena cultural con una gran cantidad de teatros, galerías de arte y museos, como el famoso Museo Nacional de Bellas Artes y el Teatro Colón, reconocido mundialmente por su acústica y arquitectura imponente.</p><p>Además de su patrimonio cultural, Buenos Aires es conocida por su pasión por el fútbol, sus exquisitas carnes en los restaurantes y parrillas, y sus animadas milongas donde el tango cobra vida. Es una ciudad que nunca duerme, con una vida nocturna activa que se extiende hasta altas horas de la madrugada.</p>",
+        "shortDescription": "Buenos Aires, la capital argentina, es una ciudad cosmopolita que combina la elegancia europea con la pasión latina. Sus barrios icónicos, rica escena cultural y el tango en sus calles hacen de esta ciudad un destino fascinante.",
+        "thumbnail": "buenos-aires.jpeg",
+        "iframeSrc": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105073.45354914365!2d-58.51587057366488!3d-34.61565465405482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e87!2sBuenos%20Aires%2C%20CABA%2C%20Argentina!5e0!3m2!1ses!2smx!4v1701926363495!5m2!1ses!2smx"
+    },
+    {
+        "id": 3,
+        "name": "Lima",
+        "country": "Perú",
+        "continent": "América",
+        "description": "<h1>Lima: Encanto Histórico y Gastronómico</h1><p>Lima, la capital de Perú, es una ciudad fascinante que combina historia, tradición y una vibrante escena culinaria. Situada a lo largo de la costa del Pacífico, esta ciudad milenaria es conocida por su riqueza arquitectónica, plazas históricas y la fusión de culturas que la hacen única.</p><p>El centro histórico de Lima, declarado Patrimonio de la Humanidad por la UNESCO, alberga joyas arquitectónicas como la Plaza Mayor, la Catedral de Lima y el Palacio de Gobierno. Además, la ciudad ofrece una amplia gama de museos que exhiben artefactos precolombinos, arte colonial y expresiones artísticas contemporáneas.</p><p>Pero quizás uno de los mayores atractivos de Lima es su reputación como capital gastronómica de América Latina. Sus mercados coloridos, restaurantes de clase mundial y la famosa fusión de sabores hacen que la gastronomía limeña sea una experiencia inolvidable para los amantes de la comida.</p><p>Con playas cercanas, como Miraflores y Barranco, que ofrecen vistas panorámicas al mar y una animada vida nocturna, Lima cautiva a los visitantes con su encanto ecléctico y su mezcla de lo antiguo y lo moderno.</p>",
+        "shortDescription": "Lima, la capital peruana, es una ciudad que fusiona historia, tradición y una reconocida escena culinaria. Su centro histórico, declarado Patrimonio de la Humanidad, junto con su gastronomía excepcional, hacen de Lima un destino imperdible.",
+        "thumbnail": "lima-peru.jpg",
+        "iframeSrc": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d249744.04492444164!2d-77.15293232020706!3d-12.02625397482818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c5f619ee3ec7%3A0x14206cb9cc452e4a!2zTGltYSwgUGVyw7o!5e0!3m2!1ses!2smx!4v1701927670948!5m2!1ses!2smx"
+    },
+    {
+        "id": 4,
+        "name": "Cusco",
+        "country": "Perú",
+        "continent": "América",
+        "description": "<h1>Cusco: Ciudad Imperial de los Incas</h1><p>Cusco, la antigua capital del Imperio Inca, es una ciudad mágica que cautiva a sus visitantes con su rica historia, su arquitectura colonial y su vibrante cultura. Ubicada en los Andes peruanos, esta ciudad milenaria es el punto de partida para explorar el Valle Sagrado de los Incas y la ciudadela de Machu Picchu, dos de los destinos más populares de Perú.</p><p>El centro histórico de Cusco, declarado Patrimonio de la Humanidad por la UNESCO, alberga impresionantes monumentos arquitectónicos como la Catedral de Cusco y el Templo del Sol, así como una gran cantidad de museos que exhiben artefactos incas y expresiones artísticas contemporáneas.</p><p>Además de su riqueza histórica, Cusco ofrece una experiencia gastronómica única que combina la cocina andina con influencias españolas. La ciudad también es conocida por su animada vida nocturna, con bares y discotecas que ofrecen música en vivo y baile hasta altas horas de la madrugada.</p><p>Con su encanto colonial y su rica cultura, Cusco es una ciudad que cautiva a los visitantes con su magia y su belleza.</p>",
+        "shortDescription": "Cusco, la antigua capital del Imperio Inca, es una ciudad mágica que cautiva a sus visitantes con su rica historia, su arquitectura colonial y su vibrante cultura. Es el punto de partida para explorar el Valle Sagrado de los Incas y la ciudadela de Machu Picchu.",
+        "thumbnail": "cusco-peru.jpeg",
+        "iframeSrc": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62065.47533914748!2d-71.98053452731327!3d-13.52993246607372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x916dd5d826598431%3A0x2aa996cc2318315d!2zQ3VzY28sIFBlcsO6!5e0!3m2!1ses-419!2smx!4v1702443493597!5m2!1ses-419!2smx"
+        
+    },
+    {
+        "id": 5,
+        "name": "Ciudad de México",
+        "country": "México",
+        "continent": "América del Norte",
+        "description": "<h1>Ciudad de México: Encuentro de Culturas y Tradiciones</h1><p>La Ciudad de México, capital de México, es una metrópolis vibrante y llena de contrastes que combina historia, cultura y modernidad. Fundada sobre las ruinas de la antigua Tenochtitlan, la ciudad se enorgullece de su herencia prehispánica, visible en lugares como el Templo Mayor y el Museo Nacional de Antropología.</p><p>Con una arquitectura impresionante que va desde la época colonial hasta rascacielos modernos, la ciudad ofrece una mezcla ecléctica de estilos. El Zócalo, una de las plazas más grandes del mundo, alberga la majestuosa Catedral Metropolitana y el Palacio Nacional, donde se encuentra el famoso mural de Diego Rivera.</p><p>La Ciudad de México es conocida por su rica gastronomía, que incluye platillos tradicionales como los tacos, mole y quesadillas, así como por su animada vida nocturna y la vitalidad de barrios como la Colonia Roma y la Condesa, con sus bares, cafés y galerías de arte.</p><p>Además, la ciudad ofrece una amplia gama de museos, teatros, parques y eventos culturales que reflejan la diversidad y la creatividad de su gente, convirtiéndola en un destino único en América del Norte.</p>",
+        "shortDescription": "La Ciudad de México es una metrópolis vibrante que combina historia, cultura y modernidad. Sus tesoros arquitectónicos, gastronomía variada y vida nocturna la convierten en un destino imperdible.",
+        "thumbnail": "ciudad-de-mexico.jpeg",
+        "iframeSrc": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d240863.71588815068!2d-99.30876577814388!3d19.390982933240927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce0026db097507%3A0x54061076265ee841!2sCiudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1702447807973!5m2!1ses-419!2smx"
+    },
+    {
+        "id": 6,
+        "name": "Caracas",
+        "country": "Venezuela",
+        "continent": "América del Sur",
+        "description": "<h1>Caracas: Capital Vibrante de Venezuela</h1><p>Caracas, la capital de Venezuela, es una ciudad dinámica y diversa que se encuentra en un valle montañoso a una altitud de aproximadamente 900 metros sobre el nivel del mar. Con su mezcla de modernidad y tradición, ofrece una experiencia única a sus visitantes.</p><p>La ciudad cuenta con una escena cultural vibrante que incluye teatros, galerías de arte, música en vivo y una variedad de festivales a lo largo del año. Los museos como el Museo de Bellas Artes y el Museo de Arte Contemporáneo de Caracas enriquecen la experiencia cultural de la ciudad.</p><p>Caracas también es reconocida por su belleza natural, con parques como el Parque Nacional El Ávila que ofrece impresionantes vistas panorámicas de la ciudad y oportunidades para disfrutar del aire libre y la naturaleza.</p><p>La gastronomía caraqueña refleja la diversidad cultural de Venezuela, con una variedad de platos típicos y la influencia de diferentes regiones del país. La arepa, el pabellón criollo y los dulces tradicionales son parte de la rica oferta culinaria de la ciudad.</p>",
+        "shortDescription": "Caracas, la capital venezolana, es una ciudad diversa con una vibrante escena cultural y belleza natural. Sus museos, parques y gastronomía reflejan la diversidad de Venezuela.",
+        "thumbnail": "caracas-venezuela.jpeg",
+        "iframeSrc": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d304069.14229536447!2d-67.09365204997138!3d10.400552066356902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a58adcd824807%3A0x93dd2eae0a998483!2sCaracas%2C%20Distrito%20Capital%2C%20Venezuela!5e0!3m2!1ses-419!2smx!4v1702448750818!5m2!1ses-419!2smx"
+    },
+    {
+        "id": 7,
+        "name": "Ciudad de Panamá",
+        "country": "Panamá",
+        "continent": "América Central",
+        "description": "<h1>Ciudad de Panamá: Encuentro de Modernidad y Naturaleza</h1><p>La Ciudad de Panamá, capital de Panamá, es una metrópolis vibrante que conecta América Central y América del Sur. Reconocida por su impresionante horizonte de rascacielos y su rica historia, la ciudad ofrece una fusión única de lo moderno y lo histórico.</p><p>El Casco Antiguo, declarado Patrimonio de la Humanidad por la UNESCO, es el corazón histórico de la ciudad, con sus edificios coloniales, iglesias antiguas y plazas encantadoras que contrastan con los modernos rascacielos del distrito financiero.</p><p>La ciudad también es famosa por su Canal de Panamá, una maravilla de la ingeniería que une el océano Atlántico con el Pacífico. El canal ofrece una experiencia única con su Centro de Visitantes de Miraflores, donde los visitantes pueden aprender sobre la historia y el funcionamiento de esta vía de navegación icónica.</p><p>Además de su ambiente urbano, la Ciudad de Panamá ofrece una gran biodiversidad natural. Los parques nacionales cercanos, como el Parque Natural Metropolitano, brindan oportunidades para explorar la selva tropical y observar una amplia variedad de flora y fauna.</p>",
+        "shortDescription": "La Ciudad de Panamá, capital de Panamá, es una fusión de modernidad e historia. Su Casco Antiguo, el Canal de Panamá y su naturaleza exuberante la convierten en un destino fascinante en América Central.",
+        "thumbnail": "panama.jpeg",
+        "iframeSrc": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252147.44920419808!2d-79.76463383580858!3d9.081622356257718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca8f1dbe80363%3A0xaba25df1f042c10e!2zUGFuYW3DoSwgUHJvdmluY2lhIGRlIFBhbmFtw6EsIFBhbmFtw6E!5e0!3m2!1ses-419!2smx!4v1702449414051!5m2!1ses-419!2smx"
+    },
+    {
+        "id": 8,
+        "name": "Santiago de Chile",
+        "country": "Chile",
+        "continent": "América del Sur",
+        "description": "<h1>Santiago de Chile: Encanto Cultural y Naturaleza Imponente</h1><p>Santiago de Chile, la capital chilena, es una ciudad dinámica que combina la riqueza cultural con la belleza natural de los Andes. Situada en un valle rodeado por majestuosas montañas, ofrece una experiencia fascinante a sus visitantes.</p><p>El centro histórico de Santiago alberga sitios emblemáticos como la Plaza de Armas, la Catedral Metropolitana y el Palacio de La Moneda, que reflejan la historia y la arquitectura colonial de la ciudad.</p><p>La ciudad también es conocida por su vibrante escena cultural, con una variedad de museos, teatros y galerías de arte que ofrecen una muestra diversa del patrimonio chileno y las expresiones contemporáneas.</p><p>Además, Santiago es un punto de partida ideal para explorar los alrededores, desde viñedos cercanos para degustar vinos de renombre hasta estaciones de esquí en los Andes que ofrecen oportunidades para disfrutar de la nieve y el aire fresco de la montaña.</p>",
+        "shortDescription": "Santiago de Chile, la capital chilena, es una fusión de historia, cultura y naturaleza. Sus sitios históricos, escena cultural y cercanía a los Andes hacen de Santiago un destino imperdible en América del Sur.",
+        "thumbnail": "santiago-chile.jpeg",
+        "iframeSrc": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212999.27287561464!2d-70.79498175420285!3d-33.47239204213224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5410425af2f%3A0x8475d53c400f0931!2sSantiago%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses-419!2smx!4v1702617544156!5m2!1ses-419!2smx"
+    }
+]
