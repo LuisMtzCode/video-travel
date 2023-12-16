@@ -2,7 +2,7 @@
 const { source, className, nameImage, captions } = Astro.props;
 ---
 
-<div id="video-container">
+<div class="relative" id="video-container">
   <video class:list={["video", className]} preload="auto">
     <source src={source} type="video/mp4" />
     {
@@ -40,7 +40,8 @@ const { source, className, nameImage, captions } = Astro.props;
     <div class="flex justify-between">
       <div class="flex gap-2 items-center">
         <div>
-          <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+          <span id="current-time">00:00</span> / <span id="duration">00:00</span
+          >
         </div>
         <button type="button" id="play-pause">
           <i class="ti ti-player-play-filled"></i>
@@ -127,24 +128,35 @@ const { source, className, nameImage, captions } = Astro.props;
       </div>
     </div>
   </div>
+  <div
+    class="loader absolute top-0 left-0 w-full h-full bg-black/60 flex justify-center items-center"
+  >
+    <i class="ti ti-loader-3 text-5xl text-white animate-spin"></i>
+  </div>
 </div>
 
-<script is:inline>
-  const video = document.querySelector("video");
-  const currentTime = document.querySelector("#current-time");
-  const duration = document.querySelector("#duration");
+<script>
+  const video = document.querySelector("video") as HTMLVideoElement;
+  const currentTime = document.querySelector(
+    "#current-time"
+  ) as HTMLSpanElement;
+  const duration = document.querySelector("#duration") as HTMLSpanElement;
 
   // Buttons
-  const playButton = document.querySelector("#play-pause");
-  const muteButton = document.querySelector("#mute");
-  const fullScreenButton = document.querySelector("#full-screen");
+  const playButton = document.querySelector("#play-pause") as HTMLButtonElement;
+  const muteButton = document.querySelector("#mute") as HTMLButtonElement;
+  const fullScreenButton = document.querySelector(
+    "#full-screen"
+  ) as HTMLButtonElement;
   const takeImgArray = document.querySelectorAll(".btn-photo");
   const captionsArray = document.querySelectorAll(".btn-captions");
   const velocityArray = document.querySelectorAll(".btn-velocity");
 
   // Sliders
-  const seekBar = document.querySelector("#seek-bar");
-  const volumeBar = document.querySelector("#volume-bar");
+  const seekBar = document.querySelector("#seek-bar") as HTMLInputElement;
+  const volumeBar = document.querySelector("#volume-bar") as HTMLInputElement;
+
+  const loader = document.querySelector(".loader") as HTMLDivElement;
 
   // Variables
   let saveVolume = 1;
@@ -161,6 +173,7 @@ const { source, className, nameImage, captions } = Astro.props;
         ":" +
         (seconds < 10 ? "0" : "") +
         seconds;
+      loader?.classList.add("hidden");
     });
 
     playButton?.addEventListener("click", function () {
