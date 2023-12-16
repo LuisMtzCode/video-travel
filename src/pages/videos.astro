@@ -27,7 +27,7 @@ import places from "../../public/json/places.json";
                 (index + 1) % 3 === 2 ? "lg:place-self-center" : ""
               } ${(index + 1) % 3 === 0 ? "lg:place-self-end" : ""}`}
               href={`/video/${video.id}`}
-              thumbnail={`/img/thumbnails/${place.thumbnail}`}
+              thumbnail={`img/thumbnails/${place.thumbnail}`}
               titleVideo={video.title}
               timeVideo={video.time}
               userName={video.user}

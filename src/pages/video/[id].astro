@@ -22,8 +22,8 @@ const randomVideos = videos
 <Layout title={video?.title ?? "Vive las aventuras"}>
   <section class="video-container">
     <VideoPlayer
-      source={`/videos/${video?.source}`}
-      captions={video?.captions ? `/videos/captions/${video?.captions}` : null}
+      source={`videos/${video?.source}`}
+      captions={video?.captions ? `videos/captions/${video?.captions}` : null}
       className="video"
       nameImage={`${video?.title.toLowerCase()}-img`}
     />
@@ -37,7 +37,7 @@ const randomVideos = videos
         <div class="user">
           <img
             class="w-10"
-            src={`/img/avatars/${video?.avatar}`}
+            src={`img/avatars/${video?.avatar}`}
             alt={`Avatar ${video?.user}`}
           />
           <div class="user-info">
@@ -92,7 +92,7 @@ const randomVideos = videos
                 title={place.name}
                 className=""
                 href={`/video/${video.id}`}
-                thumbnail={`/img/thumbnails/${place.thumbnail}`}
+                thumbnail={`img/thumbnails/${place.thumbnail}`}
                 titleVideo={video.title}
                 timeVideo={video.time}
                 userName={video.user}
