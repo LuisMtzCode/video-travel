@@ -1,9 +1,9 @@
 ---
-
+import { baseUrl } from "../utils";
 ---
 
 <div class="relative">
-  <img class="hero-img" src="img/hero-travel.png" alt="Travel" />
+  <img class="hero-img" src={baseUrl("img/hero-travel.png")} alt="Travel" />
   <div class="absolute inset-0 bg-black opacity-50"></div>
   <div
     class="absolute inset-0 flex flex-col justify-center items-center lg:items-start"

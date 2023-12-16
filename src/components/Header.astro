@@ -1,4 +1,5 @@
 ---
+import { baseUrl } from "../utils";
 interface Props {
   transparent?: boolean;
 }
@@ -17,10 +18,10 @@ const { transparent } = Astro.props;
     aria-label="Global"
   >
     <div class="flex lg:flex-1">
-      <a href="/" class="flex justify-center items-center p-1.5">
+      <a href={baseUrl()} class="flex justify-center items-center p-1.5">
         <img
           class="h-16 w-auto"
-          src="img/logo.png"
+          src={baseUrl("img/logo.png")}
           alt="Video Adventures Logo"
         />
         <h3 class="text-logo">Video <br />Adventures</h3>
@@ -39,17 +40,17 @@ const { transparent } = Astro.props;
     <div class="hidden lg:flex lg:gap-x-12"></div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end gap-6">
       <a
-        href="/"
+        href={baseUrl()}
         class="text-md font-semibold leading-6 text-sky-100 font-montserrat link-header"
         >Inicio</a
       >
       <a
-        href="/videos"
+        href={baseUrl("videos")}
         class="text-md font-semibold leading-6 text-sky-100 font-montserrat link-header"
         >Videos</a
       >
       <a
-        href="/contacto"
+        href={baseUrl("contacto")}
         class="text-md font-semibold leading-6 text-sky-100 font-montserrat link-header"
         >Contacto</a
       >
@@ -75,7 +76,7 @@ const { transparent } = Astro.props;
           <!-- <span class="sr-only">Video Adventures</span> -->
           <img
             class="h-16 w-auto"
-            src="img/logo.png"
+            src={baseUrl("img/logo.png")}
             alt="Video Adventures Logo"
           />
           <h3 class="text-logo">Video <br />Adventures</h3>
@@ -93,17 +94,17 @@ const { transparent } = Astro.props;
         <div class="-my-6 divide-y divide-gray-500/10">
           <div class="space-y-2 py-6 px-4">
             <a
-              href="/"
+              href={baseUrl()}
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white"
               >Inicio</a
             >
             <a
-              href="/videos"
+              href={baseUrl("videos")}
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text"
               >Videos</a
             >
             <a
-              href="/contacto"
+              href={baseUrl("contacto")}
               class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text"
               >Contacto</a
             >
